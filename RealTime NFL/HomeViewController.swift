@@ -30,7 +30,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var content = cell.defaultContentConfiguration()
         var tag = teams[indexPath.row].abv
         
-        cell.textLabel?.textColor = teams[indexPath.row].textColor
+//        cell.textLabel?.textColor = UIColor.white
+//        if cell.textLabel == nil {
+//            print("I'm nil")
+//        }
+        
         content.text = name
         cell.contentConfiguration = content
         cell.backgroundColor = teams[indexPath.row].color
