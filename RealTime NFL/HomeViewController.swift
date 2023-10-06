@@ -11,7 +11,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
+    let teamViewController = TeamViewController()
+    
     let teams = TeamsManager.teams
+    
+    var teamId = Int()
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -28,17 +32,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTeamSelectCell", for: indexPath)
         let name = "\(teams[indexPath.row].city) \(teams[indexPath.row].name)"
         var content = cell.defaultContentConfiguration()
-        var tag = teams[indexPath.row].abv
         
-//        cell.textLabel?.textColor = UIColor.white
-//        if cell.textLabel == nil {
-//            print("I'm nil")
-//        }
+        //        cell.textLabel?.textColor = UIColor.white
+        //        if cell.textLabel == nil {
+        //            print("I'm nil")
+        //        }
         
         content.text = name
         cell.contentConfiguration = content
         cell.backgroundColor = teams[indexPath.row].color
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        teamId = teams[indexPath.row].teamId
+//        teamViewController.configureForTeam(for: teamId)
+//        let teamViewController = TeamViewController()
+//        self.navigationController?.pushViewController(teamViewController, animated: true)
+        let storyboard = UIStoryboard(name: "TeamViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "teamVC")
+        self.present(vc, animated: true)
     }
 }
