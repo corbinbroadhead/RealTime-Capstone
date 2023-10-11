@@ -32,10 +32,11 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         getPlayers()
-        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     

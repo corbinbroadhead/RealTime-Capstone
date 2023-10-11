@@ -19,9 +19,9 @@ class NetworkManager {
     private init() {}
     
     func getPlayers(completed: @escaping (Result<[Player], CBError>) -> Void) {
-        let tag = TeamViewController().tag
-        print(TeamViewController().tag)
-        let urlExtended = baseUrl + "PlayersBasic/" + tag + apiKey
+//        let tag = TeamViewController().tag
+//        print(TeamViewController().tag)
+        let urlExtended = baseUrl + "PlayersBasic/DAL" + apiKey
         guard let url = URL(string: urlExtended) else {
             completed(.failure(.invalidURL))
             return

@@ -11,18 +11,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
-    let teamViewController = TeamViewController()
     //setting teams to equal the teams array from the TeamsManager
     let teams = TeamsManager.teams
-    //setting tag as an empty String variable. This will be passed through the controllers and eventually to the NetworkManager as part of the api
-    var tag: String = ""
-    //setting the teamId as an empty Int. Will be used as the index of the teams array that the selected team is at.
-    var teamId = Int()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
@@ -53,14 +49,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //setting the teamId equal to the corresponding teamId in the teams array.
-        teamId = teams[indexPath.row].teamId
-        //calling the configureForTeam function from teamViewController, passing in the teamId
-        teamViewController.configureForTeam(for: teamId)
+        var teamId = teams[indexPath.row].teamId
         //setting the tag equal to the corresponding abv for the team
-        tag = teams[teamId].abv
+        var tag = teams[teamId].abv
         //instantiating the teamViewController
-        let storyboard = UIStoryboard(name: "TeamViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "teamVC")
-        self.present(vc, animated: true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "teamVC")
+//        self.present(vc, animated: true)
+        guard let vc = storyboard?.instantiateViewController(identifier: "teamVC", creator: { coder in
+            return TeamViewController(coder: coder, teamId: teamId, tag: tag)
+        }) else {
+            fatalError("Failed to load TeamViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

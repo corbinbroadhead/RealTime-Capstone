@@ -10,7 +10,6 @@ import UIKit
 class TeamViewController: UIViewController {
 
     let teams = TeamsManager.teams
-    var tag: String = ""
     
     @IBOutlet weak var backgroundView: UIView!
     
@@ -18,11 +17,24 @@ class TeamViewController: UIViewController {
     
     @IBOutlet weak var rosterButton: UIButton!
     
+    
+    var teamId: Int
+    var tag: String
+    
+    init?(coder: NSCoder, teamId: Int, tag: String) {
+        self.teamId = teamId
+        self.tag = tag
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
-        let teamId = HomeViewController().teamId
-        tag = HomeViewController().tag
-        configureForTeam(for: teamId)
         super.viewDidLoad()
+        
+        configureForTeam(for: teamId)
         // Do any additional setup after loading the view.
     }
     
