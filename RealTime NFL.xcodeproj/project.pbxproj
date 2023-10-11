@@ -21,6 +21,7 @@
 		54A23D2A2ACE6AE3007A7554 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D292ACE6AE3007A7554 /* Team.swift */; };
 		54A23D2C2ACF0E4A007A7554 /* TeamsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D2B2ACF0E4A007A7554 /* TeamsManager.swift */; };
 		54A23D2E2ACFA7DB007A7554 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D2D2ACFA7DB007A7554 /* TeamViewController.swift */; };
+		54A23D332AD64872007A7554 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D322AD64872007A7554 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		54A23D292ACE6AE3007A7554 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		54A23D2B2ACF0E4A007A7554 /* TeamsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsManager.swift; sourceTree = "<group>"; };
 		54A23D2D2ACFA7DB007A7554 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		54A23D322AD64872007A7554 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				54A23D292ACE6AE3007A7554 /* Team.swift */,
 				54A23D2B2ACF0E4A007A7554 /* TeamsManager.swift */,
 				54A23D212AC65E5B007A7554 /* NetworkManager.swift */,
+				54A23D322AD64872007A7554 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				54A23D282ACCD9C5007A7554 /* HomeViewController.swift in Sources */,
 				54A23D222AC65E5B007A7554 /* NetworkManager.swift in Sources */,
 				54A23D2C2ACF0E4A007A7554 /* TeamsManager.swift in Sources */,
+				54A23D332AD64872007A7554 /* Game.swift in Sources */,
 				54A23D0D2AC65625007A7554 /* SceneDelegate.swift in Sources */,
 				54A23D242AC667B4007A7554 /* Player.swift in Sources */,
 				54A23D2E2ACFA7DB007A7554 /* TeamViewController.swift in Sources */,

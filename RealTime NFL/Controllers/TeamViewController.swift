@@ -17,6 +17,9 @@ class TeamViewController: UIViewController {
     
     @IBOutlet weak var rosterButton: UIButton!
     
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     
     var teamId: Int
     var tag: String
@@ -35,25 +38,36 @@ class TeamViewController: UIViewController {
         super.viewDidLoad()
         
         configureForTeam(for: teamId)
-        // Do any additional setup after loading the view.
     }
     
-    //perhaps this function is getting called before the view has loaded, so backgroundView is still nil at time of call
     func configureForTeam(for teamId: Int) {
         backgroundView.backgroundColor = teams[teamId].color
+        
+        cityLabel.textColor = teams[teamId].textColor
+        cityLabel.text = teams[teamId].city
+        
+        nameLabel.textColor = teams[teamId].textColor
+        nameLabel.text = teams[teamId].name
+        
         gameLogButton.backgroundColor = UIColor.white
+        gameLogButton.setTitleColor(teams[teamId].color, for: .normal)
+        gameLogButton.layer.cornerRadius = 12
+        
         rosterButton.backgroundColor = UIColor.white
-        gameLogButton.titleLabel?.textColor = teams[teamId].color
-        rosterButton.titleLabel?.textColor = teams[teamId].color
+        rosterButton.setTitleColor(teams[teamId].color, for: .normal)
+        rosterButton.layer.cornerRadius = 12
     }
     
     @IBAction func gameLogPressed(_ sender: Any) {
     }
     
     @IBAction func rosterPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "RosterViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "teamVC")
-        self.present(vc, animated: true)
+        guard let vc = storyboard?.instantiateViewController(identifier: "rosterVC", creator: { coder in
+            return RosterViewController(coder: coder, teamId: self.teamId, tag: self.tag)
+        }) else {
+            fatalError("Failed to load RosterViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

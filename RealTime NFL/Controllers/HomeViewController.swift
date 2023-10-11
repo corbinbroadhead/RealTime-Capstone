@@ -19,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,14 +47,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //setting the teamId equal to the corresponding teamId in the teams array.
-        var teamId = teams[indexPath.row].teamId
-        //setting the tag equal to the corresponding abv for the team
-        var tag = teams[teamId].abv
+        //setting a teamId equal to the corresponding teamId in the teams array.
+        let teamId = teams[indexPath.row].teamId
+        //setting a tag equal to the corresponding abv for the team
+        let tag = teams[teamId].abv
         //instantiating the teamViewController
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "teamVC")
-//        self.present(vc, animated: true)
         guard let vc = storyboard?.instantiateViewController(identifier: "teamVC", creator: { coder in
             return TeamViewController(coder: coder, teamId: teamId, tag: tag)
         }) else {
