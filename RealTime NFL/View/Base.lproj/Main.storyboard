@@ -29,6 +29,9 @@
                                 <state key="normal" title="Game Log">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="gameLogPressed:" destination="ALC-Iq-YyT" eventType="touchUpInside" id="bxn-gg-cAp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtQ-fg-yrA">
                                 <rect key="frame" x="108" y="422" width="177" height="49"/>
@@ -38,6 +41,9 @@
                                 <state key="normal" title="Roster">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="rosterPressed:" destination="ALC-Iq-YyT" eventType="touchUpInside" id="fei-0g-Vve"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jdy-Sr-PPh"/>

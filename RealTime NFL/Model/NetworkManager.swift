@@ -14,12 +14,14 @@ protocol NetworkManagerDelegate {
 class NetworkManager {
     static let shared = NetworkManager()
     private let baseUrl = "https://api.sportsdata.io/v3/nfl/scores/json/"
-    private let apiKey = "key=cd243264c2cf4c449a29d24f78ba8907"
+    private let apiKey = "?key=cd243264c2cf4c449a29d24f78ba8907"
     
     private init() {}
-
+    
     func getPlayers(completed: @escaping (Result<[Player], CBError>) -> Void) {
-        let urlExtended = baseUrl + "PlayersBasic/DAL?" + apiKey
+        let tag = TeamViewController().tag
+        print(TeamViewController().tag)
+        let urlExtended = baseUrl + "PlayersBasic/" + tag + apiKey
         guard let url = URL(string: urlExtended) else {
             completed(.failure(.invalidURL))
             return

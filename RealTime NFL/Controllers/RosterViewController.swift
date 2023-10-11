@@ -67,5 +67,6 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    
 }
 
