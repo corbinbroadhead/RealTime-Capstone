@@ -41,11 +41,11 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //MARK: Establishing Variables and IBOutlets
     //creating a variable that will be passed into our NetworkManager as the core of the URL
     var midUrl = String()
-    
+    //this will be our array of Player objects
     var players = [Player]()
-    
+
     let teams = TeamsManager.teams
-    
+
     var teamId: Int
     
     var tag: String
@@ -89,14 +89,6 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         nameLabel.textColor = teams[teamId].color
         nameLabel.text = teams[teamId].name
-//
-//        gameLogButton.backgroundColor = UIColor.white
-//        gameLogButton.setTitleColor(teams[teamId].color, for: .normal)
-//        gameLogButton.layer.cornerRadius = 12
-//
-//        rosterButton.backgroundColor = UIColor.white
-//        rosterButton.setTitleColor(teams[teamId].color, for: .normal)
-//        rosterButton.layer.cornerRadius = 12
     }
     
 //MARK: Get Players Function
