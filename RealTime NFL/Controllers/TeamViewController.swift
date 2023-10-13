@@ -21,6 +21,8 @@ class TeamViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var logoView: UIImageView!
+    
     var teamId: Int
     var tag: String
     
@@ -41,6 +43,8 @@ class TeamViewController: UIViewController {
     }
     
     func configureForTeam(for teamId: Int) {
+        logoView.image = teams[teamId].logo
+        
         backgroundView.backgroundColor = teams[teamId].color
         
         cityLabel.textColor = teams[teamId].textColor

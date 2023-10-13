@@ -36,14 +36,6 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //MARK: Declaration of variables and IB Outlets
-    //creating a temporary images array with pictures of MLS players
-    private let images: [UIImage] = [
-        UIImage(named: "1")!,
-        UIImage(named: "2")!,
-        UIImage(named: "3")!,
-        UIImage(named: "4")!,
-        UIImage(named: "5")!
-    ]
     //creating a variable that will be passed into our NetworkManager as the core of the URL
     var midUrl = String()
     //creating our instance of the teams array from TeamsManager
@@ -54,7 +46,7 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     var teamId: Int
     
     @IBOutlet weak var cityLabel: UILabel!
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var backgroundView: UIView!
@@ -89,12 +81,12 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: UI Configuration
     func configureForTeam(for teamId: Int) {
-        backgroundView.backgroundColor = teams[teamId].textColor
+        backgroundView.backgroundColor = teams[teamId].color
         
-        cityLabel.textColor = teams[teamId].color
+        cityLabel.textColor = teams[teamId].textColor
         cityLabel.text = teams[teamId].city
-        
-        nameLabel.textColor = teams[teamId].color
+
+        nameLabel.textColor = teams[teamId].textColor
         nameLabel.text = teams[teamId].name
     }
     
@@ -153,20 +145,8 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
             homeScore = String(games[indexPath.row].opponentScore)
             awayScore = String(games[indexPath.row].score)
         }
-        
-        let image = self.images[indexPath.row]
-        cell.configure(teamLogo: image, awayScore: awayScore, homeScore: homeScore, finalOrInProgress: finalOrInProgress, awayId: awayId, homeId: homeId, dayAndWeek: dayAndWeek)
-//        print(games[0].teamId)
-//        print(games[0].dayOfWeek)
-//        print(games[0].isGameOver)
-//        let name = "\(games[indexPath.row].score)"
-//        let position = "\(games[indexPath.row].opponentScore)"
-//        var content = cell.defaultContentConfiguration()
-//
-//        content.text = name
-//        cell.backgroundColor = UIColor.white
-//        content.secondaryText = position
-//        cell.contentConfiguration = content
+    
+        cell.configure(awayScore: awayScore, homeScore: homeScore, finalOrInProgress: finalOrInProgress, awayId: awayId, homeId: homeId, dayAndWeek: dayAndWeek)
         
         return cell
     }
@@ -175,9 +155,21 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 115.5
     }
     
+    //When the user selects a game we want to show them the home for the team that the previously selected team was playing against.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //makes the cell return to usual after selected
         tableView.deselectRow(at: indexPath, animated: true)
+        //creating a variable to store the correct variable for the opponent team that was selected
+        let opponentId = teamIdSorter(api: games[indexPath.row].opponentId)
+        //setting a tag equal to the corresponding abv for the team
+        let tag = teams[opponentId].abv
+        //instantiating the new view controller for the opponent
+        guard let vc = storyboard?.instantiateViewController(identifier: "teamVC", creator: { coder in
+            return TeamViewController(coder: coder, teamId: opponentId, tag: tag)
+        }) else {
+            fatalError("Failed to load TeamViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //Players Retrieved Func - I do not need this in this file

@@ -15,8 +15,9 @@ class Team {
     var textColor = UIColor()
     var teamId = Int()
     var apiTeamId = Int()
+    var logo = UIImage()
     
-    init(city: String, name: String, abv: String, color: UIColor, textColor: UIColor, teamId: Int, apiTeamId: Int) {
+    init(city: String, name: String, abv: String, color: UIColor, textColor: UIColor, teamId: Int, apiTeamId: Int, logo: UIImage) {
         self.city = city
         self.name = name
         self.abv = abv
@@ -24,5 +25,6 @@ class Team {
         self.textColor = textColor
         self.teamId = teamId
         self.apiTeamId = apiTeamId
+        self.logo = logo
     }
 }

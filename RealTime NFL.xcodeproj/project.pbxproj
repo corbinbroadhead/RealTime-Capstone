@@ -24,6 +24,7 @@
 		54A23D332AD64872007A7554 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D322AD64872007A7554 /* Game.swift */; };
 		54A23D352AD65BAC007A7554 /* GameLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D342AD65BAC007A7554 /* GameLogViewController.swift */; };
 		54A23D372AD8E906007A7554 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D362AD8E906007A7554 /* GameCell.swift */; };
+		54A23D392AD9C32D007A7554 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A23D382AD9C32D007A7554 /* PlayerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		54A23D322AD64872007A7554 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		54A23D342AD65BAC007A7554 /* GameLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogViewController.swift; sourceTree = "<group>"; };
 		54A23D362AD8E906007A7554 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		54A23D382AD9C32D007A7554 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				54A23D212AC65E5B007A7554 /* NetworkManager.swift */,
 				54A23D322AD64872007A7554 /* Game.swift */,
 				54A23D362AD8E906007A7554 /* GameCell.swift */,
+				54A23D382AD9C32D007A7554 /* PlayerCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				54A23D2C2ACF0E4A007A7554 /* TeamsManager.swift in Sources */,
 				54A23D332AD64872007A7554 /* Game.swift in Sources */,
 				54A23D0D2AC65625007A7554 /* SceneDelegate.swift in Sources */,
+				54A23D392AD9C32D007A7554 /* PlayerCell.swift in Sources */,
 				54A23D242AC667B4007A7554 /* Player.swift in Sources */,
 				54A23D2E2ACFA7DB007A7554 /* TeamViewController.swift in Sources */,
 				54A23D152AC65625007A7554 /* RealTime_NFL.xcdatamodeld in Sources */,

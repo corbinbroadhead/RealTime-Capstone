@@ -70,6 +70,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addCell()
         midUrl = "PlayersBasic/" + tag
         configureForTeam(for: teamId)
         tableView.delegate = self
@@ -78,12 +79,12 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func configureForTeam(for teamId: Int) {
-        backgroundView.backgroundColor = UIColor.white
+        backgroundView.backgroundColor = teams[teamId].color
         
-        cityLabel.textColor = teams[teamId].color
+        cityLabel.textColor = teams[teamId].textColor
         cityLabel.text = teams[teamId].city
-        
-        nameLabel.textColor = teams[teamId].color
+
+        nameLabel.textColor = teams[teamId].textColor
         nameLabel.text = teams[teamId].name
     }
     
@@ -100,20 +101,33 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //MARK: Table View Methods
+    func addCell() {
+        tableView.register(PlayerCell.self, forCellReuseIdentifier: PlayerCell.identifier)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RosterPlayerCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.identifier, for: indexPath) as? PlayerCell else {
+            fatalError("Unable to populate table view with PlayerCell cells in RosterViewController.")
+        }
+        
         let name = "\(players[indexPath.row].firstName) \(players[indexPath.row].lastName)"
         let position = players[indexPath.row].position
-        var content = cell.defaultContentConfiguration()
+        let number = players[indexPath.row].number ?? 0
         
-        content.text = name
-        cell.backgroundColor = UIColor.white
-        content.secondaryText = position
-        cell.contentConfiguration = content
+        cell.configure(for: name, whoPlays: position, number: number, teamId: self.teamId)
+        
+//        let name = "\(players[indexPath.row].firstName) \(players[indexPath.row].lastName)"
+//        let position = players[indexPath.row].position
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.text = name
+//        cell.backgroundColor = UIColor.white
+//        content.secondaryText = position
+//        cell.contentConfiguration = content
         
         return cell
     }

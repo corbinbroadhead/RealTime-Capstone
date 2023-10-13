@@ -92,11 +92,10 @@ class GameCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //make this function take in the teamId, and set the image equal to teams[teamId].logo (you still need to create this for all the teams) and the label text color to teams[teamId].color
-    public func configure(teamLogo image: UIImage, awayScore: String, homeScore: String, finalOrInProgress finalIndicator: String, awayId away: Int, homeId home: Int, dayAndWeek: String) {
-        self.myImageView.image = image
+    public func configure(awayScore: String, homeScore: String, finalOrInProgress finalIndicator: String, awayId away: Int, homeId home: Int, dayAndWeek: String) {
+        self.myImageView.image = teams[away].logo
         self.myImageView.backgroundColor = teams[away].color
-        self.myImageView2.image = image
+        self.myImageView2.image = teams[home].logo
         self.myImageView2.backgroundColor = teams[home].color
         self.awayScore.text = awayScore
         self.awayScore.textColor = teams[away].color
