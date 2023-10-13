@@ -24,7 +24,3 @@ struct Player: Codable {
         case position = "Position"
     }
 }
-
-//struct PlayerResponse: Codable {
-//    var data: [Player]
-//}

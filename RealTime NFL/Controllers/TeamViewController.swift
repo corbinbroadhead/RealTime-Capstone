@@ -59,6 +59,12 @@ class TeamViewController: UIViewController {
     }
     
     @IBAction func gameLogPressed(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "gameLogVC", creator: { coder in
+            return GameLogViewController(coder: coder, teamId: self.teamId)
+        }) else {
+            fatalError("Failed to load GameLogViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func rosterPressed(_ sender: Any) {

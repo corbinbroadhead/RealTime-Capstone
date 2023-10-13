@@ -34,11 +34,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         var content = cell.defaultContentConfiguration()
         
-        //        cell.textLabel?.textColor = UIColor.white
-        //       if cell.textLabel == nil {
-        //            print("I'm nil")
-        //        }
-        
         content.text = name
         cell.contentConfiguration = content
         cell.backgroundColor = teams[indexPath.row].color
@@ -47,6 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //makes the cell return to usual after selected
+        tableView.deselectRow(at: indexPath, animated: true)
         //setting a teamId equal to the corresponding teamId in the teams array.
         let teamId = teams[indexPath.row].teamId
         //setting a tag equal to the corresponding abv for the team

@@ -9,12 +9,11 @@ import UIKit
 
 class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
     
-    
-//MARK: Alert Management
+    //MARK: Alert Management
     //presenting an alert if there was an error when retrieving the data
     func presentAlert(with error: CBError) {
         // creating a dialogMessage variable as a UIAlertController
-        let dialogMessage = UIAlertController(title: "OK", message: error.rawValue, preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
         // creating the action for when the "ok" button is tapped
         let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
@@ -25,8 +24,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
-
-//MARK: Players Retrieved Function
+    //MARK: Players Retrieved Function
     //handling when the player data is retrieved
     func playersRetrieved(players: [Player]) {
         //setting the players variable (previously an empty array of player objects) to the data retrieved
@@ -37,15 +35,14 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
-//MARK: Establishing Variables and IBOutlets
+    //MARK: Establishing Variables and IBOutlets
     //creating a variable that will be passed into our NetworkManager as the core of the URL
     var midUrl = String()
     //this will be our array of Player objects
     var players = [Player]()
-
+    
     let teams = TeamsManager.teams
-
+    
     var teamId: Int
     
     var tag: String
@@ -58,8 +55,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var nameLabel: UILabel!
     
-
-//MARK: RosterViewController Initializers
+    //MARK: RosterViewController Initializers
     init?(coder: NSCoder, teamId: Int, tag: String) {
         self.teamId = teamId
         self.tag = tag
@@ -70,7 +66,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         fatalError("init(coder:) has not been implemented")
     }
     
-//MARK: View Did Load
+    //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,16 +78,16 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func configureForTeam(for teamId: Int) {
-        backgroundView.backgroundColor = teams[teamId].textColor
-
+        backgroundView.backgroundColor = UIColor.white
+        
         cityLabel.textColor = teams[teamId].color
         cityLabel.text = teams[teamId].city
-
+        
         nameLabel.textColor = teams[teamId].color
         nameLabel.text = teams[teamId].name
     }
     
-//MARK: Get Players Function
+    //MARK: Get Players Function
     func getPlayers(midUrl: String) {
         NetworkManager.shared.getPlayers(midUrl: midUrl) { result in
             switch result {
@@ -103,8 +99,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-
-//MARK: Table View Methods
+    //MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count
     }
@@ -116,14 +111,14 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var content = cell.defaultContentConfiguration()
         
         content.text = name
-        cell.backgroundColor = teams[teamId].color
+        cell.backgroundColor = UIColor.white
         content.secondaryText = position
         cell.contentConfiguration = content
         
         return cell
     }
     
-//MARK: Game Log Retrieved Func - I do not need this
+    //MARK: Game Log Retrieved Func - I do not need this
     func gameLogRetrieved(games: [Game]) {
         print("I do not need this func for the RosterViewController")
     }
