@@ -47,11 +47,11 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var tag: String
     
+    @IBOutlet weak var logoView: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var backgroundView: UIView!
-    
-    @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -81,11 +81,10 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureForTeam(for teamId: Int) {
         backgroundView.backgroundColor = teams[teamId].color
         
-        cityLabel.textColor = teams[teamId].textColor
-        cityLabel.text = teams[teamId].city
+        logoView.image = teams[teamId].logo
 
         nameLabel.textColor = teams[teamId].textColor
-        nameLabel.text = teams[teamId].name
+        nameLabel.text = "\(teams[teamId].city) \(teams[teamId].name)"
     }
     
     //MARK: Get Players Function

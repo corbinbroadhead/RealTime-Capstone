@@ -45,8 +45,8 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var teamId: Int
     
-    @IBOutlet weak var cityLabel: UILabel!
-
+    @IBOutlet weak var logoView: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var backgroundView: UIView!
@@ -83,11 +83,10 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     func configureForTeam(for teamId: Int) {
         backgroundView.backgroundColor = teams[teamId].color
         
-        cityLabel.textColor = teams[teamId].textColor
-        cityLabel.text = teams[teamId].city
+        logoView.image = teams[teamId].logo
 
         nameLabel.textColor = teams[teamId].textColor
-        nameLabel.text = teams[teamId].name
+        nameLabel.text = "\(teams[teamId].city) \(teams[teamId].name)"
     }
     
     //MARK: Get Games Function
