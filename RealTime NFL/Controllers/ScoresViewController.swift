@@ -146,6 +146,22 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115.5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //makes the cell return to usual after selected
+        tableView.deselectRow(at: indexPath, animated: true)
+        //setting a teamId equal to the corresponding teamId in the teams array.
+        let teamId = teamIdSorter(api: scores[indexPath.row].homeTeamId)
+        //setting a tag equal to the corresponding abv for the team
+        let tag = teams[teamId].abv
+        //instantiating the teamViewController
+        guard let vc = storyboard?.instantiateViewController(identifier: "teamVC", creator: { coder in
+            return TeamViewController(coder: coder, teamId: teamId, tag: tag)
+        }) else {
+            fatalError("Failed to load TeamViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     //MARK: Required Delegate Funcs
     func playersRetrieved(players: [Player]) {
