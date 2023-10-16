@@ -80,5 +80,229 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ADAED2C-D382-4BA8-9775-6EF6DD339798"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "102FABA7-5627-483C-B3CF-1FF7303ABCF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91F5A4A0-D40B-4D53-9804-4CC32087DC39"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "467A9E58-5EBF-4144-A53E-813E40D25288"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "467A9E58-5EBF-4144-A53E-813E40D25288 - bc1bf8dd27337f6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealTime_NFL.NetworkManager.getWeek(completed: (Swift.Result&lt;Swift.Int, RealTime_NFL.CBError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Model/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "467A9E58-5EBF-4144-A53E-813E40D25288 - f6dac7db2ad131b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RealTime_NFL.NetworkManager.getWeek(completed: (Swift.Result&lt;Swift.Int, RealTime_NFL.CBError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Model/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BE15E75-B3D9-4B97-8372-1CEF47C6EBA2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9BE15E75-B3D9-4B97-8372-1CEF47C6EBA2 - bc1bf8dd27337fc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealTime_NFL.NetworkManager.getWeek(completed: (Swift.Result&lt;Swift.Int, RealTime_NFL.CBError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Model/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "9BE15E75-B3D9-4B97-8372-1CEF47C6EBA2 - bc1bf8dd27337fc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealTime_NFL.NetworkManager.getWeek(completed: (Swift.Result&lt;Swift.Int, RealTime_NFL.CBError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Model/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C2AFB57-4892-4C05-9037-F1B7046D8EA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Model/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "getWeek(completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17E8CA2D-CC6F-412A-AD4D-B9ABEF157D96"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Controllers/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewScoresPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17E8CA2D-CC6F-412A-AD4D-B9ABEF157D96 - a4b50543b0da92cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealTime_NFL.HomeViewController.viewScoresPressed(Any) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Controllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "17E8CA2D-CC6F-412A-AD4D-B9ABEF157D96 - a46a044d408b5179"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSCoder) -&gt; Swift.Optional&lt;__C.UIViewController&gt; in RealTime_NFL.HomeViewController.viewScoresPressed(Any) -&gt; ()"
+                  moduleName = "RealTime NFL"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/corbinbroadhead/Desktop/iOS%20Dev/Miscellaneous/RealTime-Capstone/RealTime%20NFL/Controllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FEC6D92-1D87-416F-BB45-91CF628DA39D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealTime NFL/Controllers/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "viewScoresPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

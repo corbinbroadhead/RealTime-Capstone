@@ -120,21 +120,16 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.configure(for: name, whoPlays: position, number: number, teamId: self.teamId)
         
-//        let name = "\(players[indexPath.row].firstName) \(players[indexPath.row].lastName)"
-//        let position = players[indexPath.row].position
-//        var content = cell.defaultContentConfiguration()
-//
-//        content.text = name
-//        cell.backgroundColor = UIColor.white
-//        content.secondaryText = position
-//        cell.contentConfiguration = content
-        
         return cell
     }
     
-    //MARK: Game Log Retrieved Func - I do not need this
+    //MARK: Required Delegate Funcs - I do not need these
     func gameLogRetrieved(games: [Game]) {
         print("I do not need this func for the RosterViewController")
+    }
+    
+    func scoresRetrieved(scores: [Score]) {
+        print("I do not need this func for the RosterViewContoller")
     }
 }
 

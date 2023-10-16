@@ -7,18 +7,79 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
+    
+    //MARK: Alert Management
+    //presenting an alert if there was an error when retrieving the data
+    func presentAlert(with error: CBError) {
+        // creating a dialogMessage variable as a UIAlertController
+        let dialogMessage = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
+        // creating the action for when the "ok" button is tapped
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+        })
+        //adding the okButton action to the alert
+        dialogMessage.addAction(okButton)
+        //presenting the alert
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    //MARK: Week Retrieved Function
+    //handling when the game data is retrieved
+    func weekRetrieved(week: Int) {
+        //setting the games variable (previously an empty array of game objects) to the data retrieved
+        self.currentWeek = week
+        //having the view reload the data to update to display the necessary information
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var viewScoresButton: UIButton!
     
     //setting teams to equal the teams array from the TeamsManager
     let teams = TeamsManager.teams
     
+    var currentWeek = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //calling the getWeek function so it has time to get a return value before the user attempts to click the score button
+        getWeek()
+        addCell()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    //MARK: Handling ViewScoresPressed
+    @IBAction func viewScoresPressed(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "scoresVC", creator: { coder in
+            return ScoresViewController(coder: coder, week: self.currentWeek)
+        }) else {
+            fatalError("Failed to load ScoresViewController from storyboard.")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func getWeek() {
+        //making our API request
+        NetworkManager.shared.getWeek() { result in
+            switch result {
+            case .success(let week):
+                self.currentWeek = week
+            case .failure(let error):
+                self.presentAlert(with: error)
+            }
+        }
+    }
+    
+    
+    //MARK: Table View Methods
+    func addCell() {
+        tableView.register(TeamCell.self, forCellReuseIdentifier: TeamCell.identifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,17 +89,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating 'cell' as an instance of the reusable cell tag for a table view.
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTeamSelectCell", for: indexPath)
-        //creating the text for the team name that will be assigned as the text of the cell's content
-        let name = "\(teams[indexPath.row].city) \(teams[indexPath.row].name)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TeamCell.identifier, for: indexPath) as? TeamCell else {
+            fatalError("Unable to populate table view with TeamCell cells in Home View Controller.")
+        }
         
-        var content = cell.defaultContentConfiguration()
+        let teamId = teams[indexPath.row].teamId
         
-        content.text = name
-        cell.contentConfiguration = content
-        cell.backgroundColor = teams[indexPath.row].color
+        cell.configure(teamId: teamId)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68.5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -55,5 +118,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             fatalError("Failed to load TeamViewController from storyboard.")
         }
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: Required Delegate Funcs
+    func playersRetrieved(players: [Player]) {
+        print("I don't need this")
+    }
+    
+    func gameLogRetrieved(games: [Game]) {
+        print("I don't need this")
+    }
+    
+    func scoresRetrieved(scores: [Score]) {
+        print("I don't need this")
     }
 }

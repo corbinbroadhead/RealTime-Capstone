@@ -172,9 +172,13 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //Players Retrieved Func - I do not need this in this file
+    //MARK: Required Delegate Funcs - I do not need this in this file
     func playersRetrieved(players: [Player]) {
         print("I do not need this func for the GameLogViewController")
+    }
+    
+    func scoresRetrieved(scores: [Score]) {
+        print("I do not need this func for the RosterViewContoller")
     }
 }
 
