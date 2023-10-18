@@ -8,7 +8,8 @@
 import UIKit
 
 class TeamViewController: UIViewController {
-
+    
+    //MARK: Creating Variables & IBOutlets
     let teams = TeamsManager.teams
     
     @IBOutlet weak var backgroundView: UIView!
@@ -23,9 +24,12 @@ class TeamViewController: UIViewController {
     
     @IBOutlet weak var logoView: UIImageView!
     
+    //The teamId is the same as the index of the corresponding team in the teams array.
     var teamId: Int
+    //The tag will be used to pass the correct team into the API request.
     var tag: String
     
+    //MARK: View Controller Initializer
     init?(coder: NSCoder, teamId: Int, tag: String) {
         self.teamId = teamId
         self.tag = tag
@@ -42,6 +46,8 @@ class TeamViewController: UIViewController {
         configureForTeam(for: teamId)
     }
     
+    //MARK: View Controller Configuration
+    //This function will make the UI look like the selected team's branding. The names, colors, and logo will be correct.
     func configureForTeam(for teamId: Int) {
         logoView.image = teams[teamId].logo
         
@@ -62,6 +68,7 @@ class TeamViewController: UIViewController {
         rosterButton.layer.cornerRadius = 12
     }
     
+    //MARK: IBOutlet Actions
     @IBAction func gameLogPressed(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(identifier: "gameLogVC", creator: { coder in
             return GameLogViewController(coder: coder, teamId: self.teamId)

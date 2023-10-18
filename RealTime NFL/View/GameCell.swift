@@ -132,7 +132,6 @@ class GameCell: UITableViewCell {
             myImageView.topAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.topAnchor),
             myImageView.bottomAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.bottomAnchor),
             myImageView.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
-            
             myImageView.widthAnchor.constraint(equalToConstant: 60),
             
             awayAbv.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 85),

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
+class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Alert Management
     //presenting an alert if there was an error when retrieving the data
@@ -78,9 +78,11 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         getPlayers(midUrl: midUrl)
     }
     
+    //MARK: UI Design
+    //This function will make the UI look like the selected team's branding. The names, colors, and logo will be correct.
     func configureForTeam(for teamId: Int) {
         backgroundView.backgroundColor = teams[teamId].color
-        
+         
         logoView.image = teams[teamId].logo
 
         nameLabel.textColor = teams[teamId].textColor
@@ -120,15 +122,6 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.configure(for: name, whoPlays: position, number: number, teamId: self.teamId)
         
         return cell
-    }
-    
-    //MARK: Required Delegate Funcs - I do not need these
-    func gameLogRetrieved(games: [Game]) {
-        print("I do not need this func for the RosterViewController")
-    }
-    
-    func scoresRetrieved(scores: [Score]) {
-        print("I do not need this func for the RosterViewContoller")
     }
 }
 

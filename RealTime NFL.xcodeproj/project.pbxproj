@@ -86,6 +86,7 @@
 		54A23D092AC65625007A7554 /* RealTime NFL */ = {
 			isa = PBXGroup;
 			children = (
+				54A23D7B2ADF5C2E007A7554 /* Managers */,
 				54A23D2F2AD46B8E007A7554 /* Controllers */,
 				54A23D302AD46DC0007A7554 /* Model */,
 				54A23D0A2AC65625007A7554 /* AppDelegate.swift */,
@@ -117,12 +118,7 @@
 				54A23D252AC670B7007A7554 /* CBError.swift */,
 				54A23D232AC667B4007A7554 /* Player.swift */,
 				54A23D292ACE6AE3007A7554 /* Team.swift */,
-				54A23D2B2ACF0E4A007A7554 /* TeamsManager.swift */,
-				54A23D212AC65E5B007A7554 /* NetworkManager.swift */,
 				54A23D322AD64872007A7554 /* Game.swift */,
-				54A23D362AD8E906007A7554 /* GameCell.swift */,
-				54A23D382AD9C32D007A7554 /* PlayerCell.swift */,
-				54A23D3A2AD9EE60007A7554 /* TeamCell.swift */,
 				54A23D3E2ADA26A5007A7554 /* Score.swift */,
 			);
 			path = Model;
@@ -131,9 +127,21 @@
 		54A23D312AD46DFF007A7554 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54A23D3A2AD9EE60007A7554 /* TeamCell.swift */,
+				54A23D382AD9C32D007A7554 /* PlayerCell.swift */,
+				54A23D362AD8E906007A7554 /* GameCell.swift */,
 				54A23D102AC65625007A7554 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		54A23D7B2ADF5C2E007A7554 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				54A23D212AC65E5B007A7554 /* NetworkManager.swift */,
+				54A23D2B2ACF0E4A007A7554 /* TeamsManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,8 +384,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,8 +410,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

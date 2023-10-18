@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
+class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Alert Management
     //presenting an alert if there was an error when retrieving the data
@@ -169,15 +169,6 @@ class GameLogViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError("Failed to load TeamViewController from storyboard.")
         }
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    //MARK: Required Delegate Funcs - I do not need this in this file
-    func playersRetrieved(players: [Player]) {
-        print("I do not need this func for the GameLogViewController")
-    }
-    
-    func scoresRetrieved(scores: [Score]) {
-        print("I do not need this func for the RosterViewContoller")
     }
 }
 

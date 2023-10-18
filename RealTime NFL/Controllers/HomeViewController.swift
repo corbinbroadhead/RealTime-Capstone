@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Alert Management
     //presenting an alert if there was an error when retrieving the data
@@ -118,18 +118,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             fatalError("Failed to load TeamViewController from storyboard.")
         }
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    //MARK: Required Delegate Funcs
-    func playersRetrieved(players: [Player]) {
-        print("I don't need this")
-    }
-    
-    func gameLogRetrieved(games: [Game]) {
-        print("I don't need this")
-    }
-    
-    func scoresRetrieved(scores: [Score]) {
-        print("I don't need this")
     }
 }

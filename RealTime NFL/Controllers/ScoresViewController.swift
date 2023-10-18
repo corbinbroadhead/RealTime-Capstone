@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkManagerDelegate {
+class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Alert Management
     //presenting an alert if there was an error when retrieving the data
@@ -27,9 +27,9 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //MARK: Scores Retrieved Function
-    //handling when the game data is retrieved
+    //handling when the score data is retrieved
     func scoresRetrieved(scores: [Score]) {
-        //setting the games variable (previously an empty array of game objects) to the data retrieved
+        //setting the scores variable (previously an empty array of game objects) to the data retrieved
         self.scores = scores
         //having the view reload the data to update to display the necessary information
         DispatchQueue.main.async {
@@ -37,8 +37,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-//    var midUrl = String()
-    
+    //MARK: Creating Variables & IBOutlets
     var scores = [Score]()
     
     let teams = TeamsManager.teams
@@ -59,8 +58,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let midUrl: String = "ScoresBasic/2023/\(week)"
         getScores(midUrl: midUrl)
     }
-    
-    //HomeViewController will have to make the api call to retrieve the week once the btn is pressed, then it will pass it to the scoresVC through the initializer. This way the scoresVC will have it before the view loads (hopefully).
     
     //MARK: ScoresViewController Initializers
     init?(coder: NSCoder, week: Int) {
@@ -84,6 +81,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    //Making the weekLabel display the correct week.
     func configureForWeek(for week: Int) {
         weekLabel.text = "Week " + String(week)
     }
@@ -103,7 +101,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError("The table view could not dequeue a custom cell in ScoresViewController")
         }
         
-        //The team IDs on the API are formatted out of order. In order to properly sort the results we get back, we are using a function made up of a switch statement.
+        //The team IDs on the API are formatted out of order. In order to properly sort the results we get back, we are using a function made up of a switch statement in the function "teamIdSorter"
         let awayTeamId = teamIdSorter(api: scores[indexPath.row].awayTeamId)
         let homeTeamId = teamIdSorter(api: scores[indexPath.row].homeTeamId)
         var dayAndWeek = String()
@@ -111,12 +109,14 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var homeScore = String()
         var status = scores[indexPath.row].status
         
+        //if the game has not started, the quarter variable will be nil. If it is nil, we will display "not started" in the place of the quarter indicator.
         if scores[indexPath.row].quarter != nil {
             dayAndWeek = "Quarter: \(scores[indexPath.row].quarter!)"
         } else {
             dayAndWeek = "Not Started"
         }
 
+        //if the score is nil it will display 0 in its place (for both the home and the away score)
         if scores[indexPath.row].homeScore != nil {
             homeScore = "\(scores[indexPath.row].homeScore!)"
         } else {
@@ -129,6 +129,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             awayScore = "0"
         }
         
+        //I know you can use a built in function to capitalize the string, but this way works better for the "InProgress" status so we're using it for both.
         if status == "Final" {
             status = "FINAL"
         } else if status == "InProgress" {
@@ -137,20 +138,22 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             status = "SCHEDULED"
         }
         
-    
+        //configuring the cell with all the correct information
         cell.configure(awayScore: awayScore, homeScore: homeScore, finalOrInProgress: status, awayId: awayTeamId, homeId: homeTeamId, dayAndWeek: dayAndWeek)
         
         return cell
     }
     
+    //making each cell 115.5 in height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115.5
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //makes the cell return to usual after selected
         tableView.deselectRow(at: indexPath, animated: true)
-        //setting a teamId equal to the corresponding teamId in the teams array.
+        //setting a teamId equal to the home team's teamId in the teams array.
         let teamId = teamIdSorter(api: scores[indexPath.row].homeTeamId)
         //setting a tag equal to the corresponding abv for the team
         let tag = teams[teamId].abv
@@ -162,16 +165,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         navigationController?.pushViewController(vc, animated: true)
     }
-
-    //MARK: Required Delegate Funcs
-    func playersRetrieved(players: [Player]) {
-        print("I don't need this")
-    }
-
-    func gameLogRetrieved(games: [Game]) {
-        print("I don't need this")
-    }
-
 }
 
 extension ScoresViewController {

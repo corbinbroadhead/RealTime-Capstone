@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol NetworkManagerDelegate {
-    func playersRetrieved(players: [Player])
-    func gameLogRetrieved(games: [Game])
-    func scoresRetrieved(scores: [Score])
-}
-
-
 class NetworkManager {
     static let shared = NetworkManager()
     private let baseUrl = "https://api.sportsdata.io/v3/nfl/scores/json/"
